@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiệp Chúc Mừng 20/10</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffd6e7, #ffe6f0);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .card {
+      display: flex;
+      width: 80%;
+      height: 80%;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      overflow: hidden;
+      position: relative;
+    }
+    .left {
+      width: 40%;
+      background: url('485363872_1938539113620957_2461353830020682988_n.jpg') center/cover no-repeat;
+      filter: brightness(0.95);
+    }
+    .right {
+      width: 60%;
+      padding: 60px;
+      background: rgba(255, 245, 250, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+    h1 {
+      color: #d63384;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    p {
+      font-size: 1.3em;
+      color: #555;
+      line-height: 1.6;
+    }
+    .music-control {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ffb6c1;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .music-control:hover {
+      background: #ff94b3;
+    }
+    .flower {
+      position: absolute;
+      top: -10%;
+      width: 30px;
+      height: 30px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') center/contain no-repeat;
+      opacity: 0.8;
+      animation: fall 10s linear infinite;
+    }
+    @keyframes fall {
+      0% {transform: translateY(0) rotate(0deg); opacity: 1;}
+      100% {transform: translateY(110vh) rotate(360deg); opacity: 0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left"></div>
+    <div class="right">
+      <button class="music-control" onclick="toggleMusic()">🔈 Tắt nhạc</button>
+      <h1>Chúc Mừng 20/10 💐</h1>
+      <p>Chúc em 20/10 luôn rạng rỡ, hạnh phúc và xinh đẹp như chính nụ cười của em 💗<br>
+      Mong rằng mỗi ngày trôi qua đều tràn ngập yêu thương và niềm vui!</p>
+    </div>
+  </div>
+  <audio id="bgMusic" loop autoplay>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7b7e79eeb7.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const btn = document.querySelector('.music-control');
+    function toggleMusic(){
+      if(audio.paused){ audio.play(); btn.textContent='🔈 Tắt nhạc'; }
+      else{ audio.pause(); btn.textContent='🔇 Bật nhạc'; }
+    }
+    for(let i=0;i<15;i++){
+      const f = document.createElement('div');
+      f.className = 'flower';
+      f.style.left = Math.random()*100+'vw';
+      f.style.animationDelay = (Math.random()*5)+'s';
+      f.style.animationDuration = (7+Math.random()*5)+'s';
+      document.body.appendChild(f);
+    }
+  </script>
+</body>
+</html>
